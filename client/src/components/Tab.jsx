@@ -1,12 +1,40 @@
-import { useSnapshot } from "valtio"
+import { useSnapshot } from "valtio";
+import PropTypes from "prop-types";
 
-import state from "../store"
+import state from "../store";
 
-const Tab = () => {
-  const snap = useSnapshot(state)
+const Tab = ({ tab, isFilterTab, isActiveTab, handleClick }) => {
+  const snap = useSnapshot(state);
+
+  const activeStyle =
+  isFilterTab && isActiveTab
+      ? { backgroundColor: snap.color, opacity: 0.5 }
+      : {
+          backgroundColor: "transparent",
+          opacity: 1,
+        };
+
   return (
-    <div>tab</div>
-  )
-}
+    <div
+      key={tab.name}
+      className={`tab-btn ${ isFilterTab ? 'rounded-full glassmorphism' : 'rounded-4'}`}
+      onClick={handleClick}
+      style={activeStyle}
+    >
+      <img
+        src={tab.icon}
+        alt={tab.name}
+        className={`${isFilterTab ? 'w-2/3 h-2/3' : 'w-11/12 h-11/12 object-contain'}`}
+      />
+    </div>
+  );
+};
 
-export default Tab
+Tab.propTypes = {
+  tab: PropTypes.object.isRequired,
+  isFilterTab: PropTypes.bool,
+  isActiveTab: PropTypes.bool,
+  handleClick: PropTypes.func.isRequired,
+};
+
+export default Tab;
