@@ -40,7 +40,7 @@ const Customizer = () => {
           prompt={prompt}
           setPrompt={setPrompt}
           generatingImg={generatingImg}
-          handleSubmit={handleSubmit}
+          // handleSubmit={handleSubmit}
         />
       default:
         return null;
@@ -76,6 +76,10 @@ const Customizer = () => {
   //   }
   // }
 
+  const handleDownloadImage = () => {
+    downloadCanvasToImage();
+  }
+
   const handleDecals = (type, result) => {
     const decalType = DecalTypes[type];
 
@@ -94,6 +98,9 @@ const Customizer = () => {
       case "stylishShirt":
           state.isFullTexture = !activeFilterTab[tabName];
         break;
+       case "download":
+        handleDownloadImage();
+       break; 
       default:
         state.isLogoTexture = true;
         state.isFullTexture = false;

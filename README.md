@@ -62,7 +62,7 @@ cd server
 npm start
 ```
 
-The server will run on port 3001 by default. You can configure the port in the `server.js` file if needed.
+The server will run on port 8080 by default. You can configure the port in the `server.js` file if needed.
 
 2. Start the client:
 
@@ -82,7 +82,9 @@ The Custom T-Shirt App includes an editor with two tabs:
 
 2. **File Picker**: This tab lets you upload and place logos or full images on the T-shirt.
 
-**Note**: The AI integration for creating logos or gradients is currently disabled. If you wish to enable this feature, uncomment the relevant object data in the `constants.js` file.
+3. **AI Picker (Disabled)**: This tab, although currently disabled, can be enabled by uncommenting the handleSubmit function in the Customizer.jsx component. This feature leverages OpenAI to create logos or gradients for T-shirts.
+
+**Note**: The AI integration for creating logos or gradients is currently disabled. If you wish to enable this feature, you also need to uncomment the relevant object data in the `constants.js` file.
 
 ## Contributors
 
